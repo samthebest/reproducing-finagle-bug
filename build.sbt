@@ -24,11 +24,10 @@ lazy val sharedSettings: Seq[Def.Setting[_]] = Seq(
   libraryDependencies ++= Seq(
     // If we comment these 3 out, we get java.lang.NoClassDefFoundError: Could not initialize class io.netty.handler.codec.http.HttpClientCodec$Encoder
 
-    "org.slf4j"          % "slf4j-api"        % Versions.slf4j,
+//    "org.slf4j"          % "slf4j-api"        % Versions.slf4j,
 
     // If we comment these 2 out, we get java.lang.NoClassDefFoundError: Could not initialize class io.netty.handler.codec.http.HttpClientCodec$Encoder
     "org.slf4j"          % "log4j-over-slf4j" % Versions.slf4j,
-//    "org.slf4j"          % "jul-to-slf4j"     % Versions.slf4j,
 
   ),
 
