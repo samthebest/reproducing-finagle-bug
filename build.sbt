@@ -22,12 +22,14 @@ lazy val sharedSettings: Seq[Def.Setting[_]] = Seq(
 
   // If we comment this out, we get java.lang.NoClassDefFoundError: Could not initialize class io.netty.handler.codec.http.HttpClientCodec$Encoder
   libraryDependencies ++= Seq(
+    // If we comment these 3 out, we get java.lang.NoClassDefFoundError: Could not initialize class io.netty.handler.codec.http.HttpClientCodec$Encoder
     "org.slf4j"          % "slf4j-api"        % Versions.slf4j,
     "org.slf4j"          % "log4j-over-slf4j" % Versions.slf4j,
     "org.slf4j"          % "jul-to-slf4j"     % Versions.slf4j,
-    "org.scalatest"     %% "scalatest"        % Versions.scalatest  % Test,
-    "org.scalatestplus" %% "scalacheck-1-15"  % Versions.scalacheck % Test,
-    "ch.qos.logback"     % "logback-classic"  % Versions.logback    % Test,
+
+//    "org.scalatest"     %% "scalatest"        % Versions.scalatest  % Test,
+//    "org.scalatestplus" %% "scalacheck-1-15"  % Versions.scalacheck % Test,
+//    "ch.qos.logback"     % "logback-classic"  % Versions.logback    % Test,
   ),
 
   javacOptions ++= Seq("-source", "11", "-target", "11"),
@@ -39,9 +41,9 @@ lazy val hypervolt = (project in file("."))
   .settings(
     name                    := "hypervolt",
     moduleName              := "hypervolt",
+    // this makes it fail, comment this line out and issue goes away.
     ThisBuild / useCoursier := false,
     defaultSettings,
-//    crossScalaVersions := Nil,
   )
   .aggregate(
     lang,
