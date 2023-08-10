@@ -45,6 +45,8 @@ lazy val sharedSettings: Seq[Def.Setting[_]] = Seq(
   organization                           := "com.hypervolt",
   Test / fork                            := true,
   Compile / packageDoc / publishArtifact := false,
+
+  // If we comment this out, we get java.lang.NoClassDefFoundError: Could not initialize class io.netty.handler.codec.http.HttpClientCodec$Encoder
   libraryDependencies ++= Seq(
     "org.slf4j"          % "slf4j-api"        % Versions.slf4j,
     "org.slf4j"          % "log4j-over-slf4j" % Versions.slf4j,
@@ -53,14 +55,8 @@ lazy val sharedSettings: Seq[Def.Setting[_]] = Seq(
     "org.scalatestplus" %% "scalacheck-1-15"  % Versions.scalacheck % Test,
     "ch.qos.logback"     % "logback-classic"  % Versions.logback    % Test,
   ),
+
   javacOptions ++= Seq("-source", "11", "-target", "11"),
-  Test / testOptions ++= Seq(Tests.Argument("-oF"), Tests.Argument("-oD")),
-  Test / javaOptions ++= Seq(
-    "-Xmx2G",
-    "-Djava.net.preferIPv4Stack=true",
-    "-XX:MetaspaceSize=512m",
-    "-XX:MaxMetaspaceSize=1g",
-  ),
 )
 
 lazy val defaultSettings = Defaults.coreDefaultSettings ++ sharedSettings
@@ -89,12 +85,6 @@ lazy val lang = (project in file("libs/utils/lang"))
       "org.typelevel"      %% "squants"      % Versions.squants,
     ),
   )
-
-lazy val fpCompilerPlugins: Seq[Def.Setting[_]] = Seq(
-  addCompilerPlugin("org.typelevel"  %% "kind-projector"     % "0.11.0" cross CrossVersion.full),
-  addCompilerPlugin("com.olegpy"     %% "better-monadic-for" % "0.3.1"),
-  addCompilerPlugin("org.augustjune" %% "context-applied"    % "0.1.3"),
-)
 
 lazy val hvDomain = (project in file("libs/hv-domain"))
   .settings(
