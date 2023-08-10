@@ -50,18 +50,14 @@ lazy val hvDomain = (project in file("libs/hv-domain"))
     defaultSettings,
     moduleName := "hv-domain",
     libraryDependencies ++= Seq(
-//      "com.twitter"        %% "util-core"        % Versions.twitter,
       "io.netty"            % "netty-buffer"     % Versions.netty,
-
       "com.twitter"        %% "finagle-http"     % Versions.twitter,
-
 
       // Weirdly adding this and removing dependsOn(lang) does NOT break it
 //      "com.github.finagle" %% "finchx-core"  % Versions.finch,
 
-// Makes it fail
+// Makes it fail, even without dependsOn(lang)
 //      "io.netty" % "netty-all" % Versions.netty,
-
     ),
   )
   // Makes it fail, comment it out and it works
