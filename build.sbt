@@ -14,8 +14,6 @@ lazy val Versions = new {
 ThisBuild / scalaVersion := scala213
 
 lazy val sharedSettings: Seq[Def.Setting[_]] = Seq(
-//  organization                           := "com.hypervolt",
-
   libraryDependencies ++= Seq(
     // If we comment this out, we get java.lang.NoClassDefFoundError: Could not initialize class io.netty.handler.codec.http.HttpClientCodec$Encoder
     "org.slf4j"          % "log4j-over-slf4j" % Versions.slf4j,
@@ -55,7 +53,7 @@ lazy val hvDomain = (project in file("libs/hv-domain"))
     libraryDependencies ++= Seq(
       "com.twitter"        %% "util-core"        % Versions.twitter,
       "io.netty"            % "netty-buffer"     % Versions.netty,
-      "com.github.finagle" %% "finchx-circe"     % Versions.finch,
+//      "com.github.finagle" %% "finchx-circe"     % Versions.finch,
       "com.twitter"        %% "finagle-http"     % Versions.twitter,
 
 // Makes it fail
