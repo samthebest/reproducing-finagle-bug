@@ -14,7 +14,7 @@ lazy val Versions = new {
 ThisBuild / scalaVersion := scala213
 
 lazy val sharedSettings: Seq[Def.Setting[_]] = Seq(
-  organization                           := "com.hypervolt",
+//  organization                           := "com.hypervolt",
 
   libraryDependencies ++= Seq(
     // If we comment this out, we get java.lang.NoClassDefFoundError: Could not initialize class io.netty.handler.codec.http.HttpClientCodec$Encoder
@@ -41,6 +41,7 @@ lazy val lang = (project in file("libs/utils/lang"))
   .settings(
     sharedSettings,
     moduleName := "lang",
+    // Comment this out and it works
     libraryDependencies ++= Seq(
       "com.github.finagle" %% "finchx-core"  % Versions.finch,
     ),
@@ -49,7 +50,7 @@ lazy val lang = (project in file("libs/utils/lang"))
 lazy val hvDomain = (project in file("libs/hv-domain"))
   .settings(
     defaultSettings,
-    sharedSettings,
+//    sharedSettings,
     moduleName := "hv-domain",
     libraryDependencies ++= Seq(
       "com.twitter"        %% "util-core"        % Versions.twitter,
@@ -61,10 +62,8 @@ lazy val hvDomain = (project in file("libs/hv-domain"))
 //      "io.netty" % "netty-all" % Versions.netty,
 
     ),
-    // not sure why this needs to be specified "twice"
-//    scalaVersion := scala213,
   )
-  // Makes it fail
+  // Makes it fail, comment it out and it works
   .dependsOn(lang)
 
 
