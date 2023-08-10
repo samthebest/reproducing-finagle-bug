@@ -39,7 +39,7 @@ lazy val hypervolt = (project in file("."))
   .settings(
     name                    := "hypervolt",
     moduleName              := "hypervolt",
-//    ThisBuild / useCoursier := false,
+    ThisBuild / useCoursier := false,
     defaultSettings,
 //    crossScalaVersions := Nil,
   )
