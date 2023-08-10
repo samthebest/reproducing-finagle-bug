@@ -80,9 +80,9 @@ lazy val lang = (project in file("libs/utils/lang"))
     moduleName := "lang",
     libraryDependencies ++= Seq(
       "com.github.finagle" %% "finchx-core"  % Versions.finch,
-      "io.circe"           %% "circe-core"   % Versions.circe,
-      "io.circe"           %% "circe-parser" % Versions.circe,
-      "org.typelevel"      %% "squants"      % Versions.squants,
+//      "io.circe"           %% "circe-core"   % Versions.circe,
+//      "io.circe"           %% "circe-parser" % Versions.circe,
+//      "org.typelevel"      %% "squants"      % Versions.squants,
     ),
   )
 
@@ -94,13 +94,13 @@ lazy val hvDomain = (project in file("libs/hv-domain"))
     libraryDependencies ++= Seq(
       "com.twitter"        %% "util-core"        % Versions.twitter,
       "io.netty"            % "netty-buffer"     % Versions.netty,
-      "com.lihaoyi"        %% "upickle"          % "1.6.0",
-      "io.circe"           %% "circe-core"       % Versions.circe,
-      "io.circe"           %% "circe-generic"    % Versions.circe,
-      "io.circe"           %% "circe-parser"     % Versions.circe,
-      "org.apache.commons"  % "commons-compress" % "1.21",
-      "org.tukaani"         % "xz"               % "1.9",
-      "com.outworkers"     %% "util-samplers"    % Versions.util % Test,
+//      "com.lihaoyi"        %% "upickle"          % "1.6.0",
+//      "io.circe"           %% "circe-core"       % Versions.circe,
+//      "io.circe"           %% "circe-generic"    % Versions.circe,
+//      "io.circe"           %% "circe-parser"     % Versions.circe,
+//      "org.apache.commons"  % "commons-compress" % "1.21",
+//      "org.tukaani"         % "xz"               % "1.9",
+//      "com.outworkers"     %% "util-samplers"    % Versions.util % Test,
       "com.github.finagle" %% "finchx-circe"     % Versions.finch,
       "com.twitter"        %% "finagle-http"     % Versions.twitter,
 
@@ -118,7 +118,7 @@ lazy val hvDomain = (project in file("libs/hv-domain"))
 //      "io.netty"       % "netty-buffer" % Versions.netty,
 //      "com.github.finagle" %% "finchx-core"  % Versions.finch,
 
-      "io.shaka"           %% "naive-http"       % "126",
+//      "io.shaka"           %% "naive-http"       % "126",
     ),
     // not sure why this needs to be specified "twice"
     scalaVersion := scala213,
