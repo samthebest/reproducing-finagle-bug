@@ -37,7 +37,7 @@ lazy val hypervolt = (project in file("."))
 
 lazy val lang = (project in file("libs/utils/lang"))
   .settings(
-    sharedSettings,
+    defaultSettings,
     moduleName := "lang",
     // Comment this out and it works
     libraryDependencies ++= Seq(
@@ -48,13 +48,16 @@ lazy val lang = (project in file("libs/utils/lang"))
 lazy val hvDomain = (project in file("libs/hv-domain"))
   .settings(
     defaultSettings,
-//    sharedSettings,
     moduleName := "hv-domain",
     libraryDependencies ++= Seq(
       "com.twitter"        %% "util-core"        % Versions.twitter,
       "io.netty"            % "netty-buffer"     % Versions.netty,
-//      "com.github.finagle" %% "finchx-circe"     % Versions.finch,
+
       "com.twitter"        %% "finagle-http"     % Versions.twitter,
+
+
+      // Weirdly adding this and removing dependsOn(lang) does NOT break it
+//      "com.github.finagle" %% "finchx-core"  % Versions.finch,
 
 // Makes it fail
 //      "io.netty" % "netty-all" % Versions.netty,
