@@ -1,7 +1,9 @@
 import sbt.Keys._
 import sbt._
 
+// some of these libraries are used by our flink pipelines and require scala 2.12
 lazy val scala213               = "2.13.8"
+
 
 lazy val Versions = new {
   val finch = "0.32.1"
@@ -17,8 +19,6 @@ ThisBuild / scalaVersion := scala213
 
 lazy val sharedSettings: Seq[Def.Setting[_]] = Seq(
   organization                           := "com.hypervolt",
-//  Test / fork                            := true,
-//  Compile / packageDoc / publishArtifact := false,
 
   // If we comment this out, we get java.lang.NoClassDefFoundError: Could not initialize class io.netty.handler.codec.http.HttpClientCodec$Encoder
   libraryDependencies ++= Seq(
@@ -39,9 +39,9 @@ lazy val hypervolt = (project in file("."))
   .settings(
     name                    := "hypervolt",
     moduleName              := "hypervolt",
-    ThisBuild / useCoursier := false,
+//    ThisBuild / useCoursier := false,
     defaultSettings,
-    crossScalaVersions := Nil,
+//    crossScalaVersions := Nil,
   )
   .aggregate(
     lang,
