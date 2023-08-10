@@ -50,7 +50,7 @@ lazy val hvDomain = (project in file("libs/hv-domain"))
     defaultSettings,
     moduleName := "hv-domain",
     libraryDependencies ++= Seq(
-      "com.twitter"        %% "util-core"        % Versions.twitter,
+//      "com.twitter"        %% "util-core"        % Versions.twitter,
       "io.netty"            % "netty-buffer"     % Versions.netty,
 
       "com.twitter"        %% "finagle-http"     % Versions.twitter,
